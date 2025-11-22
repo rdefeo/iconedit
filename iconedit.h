@@ -29,7 +29,7 @@ typedef enum {
 
     // modal panels
     Panel_Playback,
-    Panel_SaveAs, // PNG, XBM, .C
+    Panel_SaveAs, // PNG, XBM, .C, BMX
     Panel_New, // dimension prompt
     Panel_FPS, // select FPS
     Panel_SendUSB,

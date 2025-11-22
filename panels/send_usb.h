@@ -10,5 +10,5 @@ typedef enum {
     SendAsBMX,
 } SendAsType;
 
-void send_usb_start(IEIcon* icon, SendAsType send_as);
+void send_usb_start(IEIcon* icon, SendAsType send_as, bool current_frame_only);
 void send_usb_set_update_callback(IconEditUpdateCallback callback, void* context);
