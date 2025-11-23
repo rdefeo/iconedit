@@ -196,6 +196,8 @@ IconEdit* iconedit_app_alloc() {
 void iconedit_app_free(IconEdit* app) {
     FURI_LOG_W(TAG, "_free");
 
+    dialog_free_dialog();
+
     ie_icon_free(app->icon);
     canvas_free_canvas();
 

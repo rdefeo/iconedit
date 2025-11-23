@@ -2,7 +2,7 @@
 
 ## Icon editor for the FlipperZero
 
-Create images and animated icons up to 128x64 in size directly on the Flipper! Easily preview how your images, icons, and animations will look directly on the device. Send your images to your PC without swapping the SDCard! Significantly improves your development workflow by eliminating the need to copy images to your build folders, rebuild, and re-launching your app after every image edit.
+Create images and animated icons up to 128x64 in size directly on the Flipper! Easily preview how your images, icons, and animations will look directly on the device. Send your images and icon animations to your PC without swapping the SDCard! Significantly improves your development workflow by eliminating the need to copy images to your build folders, rebuild, and re-launching your app after every image edit.
 
 * All in-app icons were created with IconEdit!
 

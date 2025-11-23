@@ -22,7 +22,7 @@ IEIcon* ie_icon_alloc(bool default_size) {
     if(default_size) {
         ie_icon_reset(icon, 10, 10, NULL);
     }
-    icon->name = furi_string_alloc_set_str("new_icon");
+    icon->name = furi_string_alloc_set_str(NEW_ICON_DEFAULT_NAME);
     return icon;
 }
 

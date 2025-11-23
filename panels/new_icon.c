@@ -102,6 +102,7 @@ bool new_icon_input(InputEvent* event, void* context) {
             // set the new dimensions
             if(new_icon_check_digits()) {
                 ie_icon_reset(app->icon, newModel.w, newModel.h, NULL);
+                furi_string_set_str(app->icon->name, NEW_ICON_DEFAULT_NAME);
                 canvas_free_canvas();
                 canvas_alloc_canvas(newModel.w, newModel.h);
                 // user just created a new icon, place them directly into Tools!

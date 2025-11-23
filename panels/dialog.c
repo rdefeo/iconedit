@@ -60,6 +60,12 @@ void dialog_setup(const char* msg, DialogPrompt prompt, DialogCallback callback,
     dialogModel.context = context;
 }
 
+void dialog_free_dialog() {
+    if(dialogModel.message) {
+        furi_string_free(dialogModel.message);
+    }
+}
+
 void dialog_return_to_panel(void* context, DialogButton button) {
     UNUSED(button);
     IconEdit* app = context;

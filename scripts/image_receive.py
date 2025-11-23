@@ -29,10 +29,11 @@ def valid_binary_text(text: list[str]) -> bool:
 
 
 def save_text(text: list[str], filename: str):
-    """Save text to a filename as ASCII text"""
+    """Save text list to filename as ASCII text"""
     with open(filename, "w") as file:
         for line in text:
             file.write(line)
+            file.write("\n")
 
 
 def save_binary(text: list[str], filename: str):
@@ -84,8 +85,11 @@ class cli(cmd.Cmd):
     def help_receive(self):
         print("Receives one or more files from the IconEdit app")
         print()
-        print("  receive text [filename]")
+        print("  receive text filename")
         print("    - Use to save .C source files, whether single-frame or animation")
+        print("      This won't send the filename (you will not be prompted) thus")
+        print("      it is a required argument. Consider sending .C source files")
+        print("      directly to your IDE.")
         print()
         print("  recieve bin [filename]")
         print("    - Use to save binary image formats like PNG and BMX")
@@ -115,7 +119,7 @@ class cli(cmd.Cmd):
         if not filename:
             print("ERROR! No filename or dir name provided!")
             return
-        if not re.match(r"^[\w\-_]+$", filename):
+        if not re.match(r"^[\w\-_\.]+$", filename):
             print("ERROR! Filename contains invalid characters")
             return
 
@@ -157,6 +161,9 @@ class cli(cmd.Cmd):
         if self.empty_line_count == 3:
             print("Try typing 'help' to get started!")
             self.empty_line_count = 0
+
+    def default(self, line):
+        print(f"Unknown command: {line}. Type 'help' to list available commands")
 
 
 if __name__ == "__main__":

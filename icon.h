@@ -2,6 +2,8 @@
 
 #include <furi.h>
 
+#define NEW_ICON_DEFAULT_NAME "new_icon"
+
 typedef struct Frame {
     uint8_t* data;
     struct Frame* next;

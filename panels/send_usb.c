@@ -13,7 +13,7 @@
 
 #define MAX_LINES          64
 #define LINE_COUNT         4 // number of lines visible in the panel
-#define END_OF_DATA_STREAM "\n"
+#define END_OF_DATA_STREAM "\n" // Blank line tells script we done sending data
 typedef enum {
     State_NONE,
     State_READY,
@@ -146,6 +146,7 @@ void send_usb_send_icon() {
         // For .C files, sending a single frame or the whole animation is still a single "file"
         icon_text = c_file_generate(sendModel.icon, sendModel.current_frame_only);
         send_usb_send_str(furi_string_get_cstr(icon_text));
+        send_usb_send_str(END_OF_DATA_STREAM);
         furi_string_free(icon_text);
         break;
     case SendAsPNG:
@@ -155,6 +156,7 @@ void send_usb_send_icon() {
         if(sendModel.current_frame_only) {
             icon_text = png_file_generate_frame(sendModel.icon, sendModel.icon->current_frame);
             send_usb_send_str(furi_string_get_cstr(icon_text));
+            send_usb_send_str(END_OF_DATA_STREAM);
         } else {
             for(size_t f = 0; f < sendModel.icon->frame_count; f++) {
                 char progress[32];
@@ -178,6 +180,7 @@ void send_usb_send_icon() {
         // No animation support yet, so current_frame is 0
         icon_text = bmx_file_generate_frame(sendModel.icon, sendModel.icon->current_frame);
         send_usb_send_str(furi_string_get_cstr(icon_text));
+        send_usb_send_str(END_OF_DATA_STREAM);
         furi_string_free(icon_text);
         break;
     default:
@@ -243,7 +246,7 @@ bool send_usb_input(InputEvent* event, void* context) {
             switch(sendModel.state) {
             case State_READY:
                 // Our USB connection is ready and we're prompting user
-                // if they are ready to transmit
+                // if they are ready to transmit data
                 if(!sendModel.filename_prompt) {
                     sendModel.state = State_SENDING;
                     send_usb_send_icon();
