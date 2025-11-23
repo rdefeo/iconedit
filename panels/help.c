@@ -48,7 +48,7 @@ const Line help_text[] = {
     {Normal, "to the focused app."},
     BlankLine,
     {Normal, "PNG and BMX require use of"},
-    {Normal, "image_bin_receive.py script"},
+    {Normal, "image_receive.py script"},
     BlankLine,
     {Normal, "More details on github:"},
     {Normal, "github.com/rdefeo/iconedit"},
