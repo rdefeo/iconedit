@@ -38,10 +38,10 @@ void about_draw(Canvas* canvas, void* context) {
     pixel_data = xbm_decode(xbm, 10, 10);
 
     compress_icon_free(compress);
-    free(xbm);
 
-    // this next part is mostly copied direct from canvas, but since we know we have a 10x10
-    // icon, we can take some shortcuts in computing where and how to draw
+    // this next part is mostly copied direct from our canvas draw method,
+    // but since we know we have a 10x10 icon, we can take some shortcuts
+    // in computing where and how to draw
     int x_offset = 64 + 2; // top-left corner
     int y_offset = 0 + 2; // of our canvas area
     int scale = 6;
