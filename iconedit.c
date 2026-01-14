@@ -6,6 +6,7 @@
 #include <flipper_format/flipper_format.h>
 #include <gui/canvas.h>
 #include <gui/view_holder.h>
+#include <gui/gui.h>
 #include <input/input.h>
 #include <notification/notification.h>
 #include <notification/notification_messages.h>

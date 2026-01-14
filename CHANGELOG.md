@@ -8,7 +8,7 @@
 ## 0.6
 
 - Save/Send animations
-- Refactored image_receive.py script to receive binary and animations
+- Refactored image_receive.py script to receive binary files and animations
 
 ## 0.5
 
