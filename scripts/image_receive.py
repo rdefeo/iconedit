@@ -32,9 +32,7 @@ def valid_binary_text(text: list[str]) -> bool:
 def save_text(text: list[str], filename: str) -> None:
     """Save text list to filename as ASCII text"""
     with open(filename, "w") as file:
-        for line in text:
-            file.write(line)
-            file.write("\n")
+        file.writelines(f"{line}\n" for line in text)
 
 
 def save_binary(text: list[str], filename: str) -> None:
@@ -120,8 +118,8 @@ class Cli(cmd.Cmd):
             return
 
         if not filename:
-            text = receive_text("Ready to receive filename!")
-            filename = text[0] if text else ""
+            name_data = receive_text("Ready to receive filename!")
+            filename = name_data[0] if name_data else ""
         if not filename:
             print("ERROR! No filename or dir name provided!")
             return
